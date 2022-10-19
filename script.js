@@ -35,7 +35,7 @@ let weather = {
     // console.log(name, icon, description, temp, humidity, speed);
     document.querySelector(
       ".city"
-    ).innerText = `Weather in ${name}${currentState}`;
+    ).innerText = `Weather in \n${name}${currentState}`;
     document.querySelector(".icon").src =
       "http://openweathermap.org/img/wn/" + icon + ".png";
     document.querySelector(".description").innerText = description;
@@ -43,7 +43,7 @@ let weather = {
     document.querySelector(".humidity").innerText =
       "Humidity: " + humidity + "%";
     document.querySelector(".wind").innerText =
-      "Wind Speed: " + Math.ceil(speed) + "mph";
+      "Wind Speed: " + Math.ceil(speed) + " mph";
     document.querySelector(".weather").classList.remove("loading");
     document.body.style.backgroundImage =
       "url('https://source.unsplash.com/1920x1080/?" + name + "')";
