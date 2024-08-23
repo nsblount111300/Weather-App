@@ -6,7 +6,7 @@ let weather = {
         &limit=5&appid=${this.apiKey}`
     )
       .then((response) => response.json())
-      // .then((data) => console.log(data))
+
       .then((data) => {
         const lat = data[0].lat;
         const lon = data[0].lon;
@@ -17,7 +17,6 @@ let weather = {
         )
           .then((response) => response.json())
           .then((data) => this.displayWeather(data, state));
-        // .then((data) => console.log(data));
       });
   },
   displayWeather: function (data, state) {
@@ -32,7 +31,7 @@ let weather = {
     const { icon, description } = data.weather[0];
     const { temp, humidity } = data.main;
     const { speed } = data.wind;
-    // console.log(name, icon, description, temp, humidity, speed);
+
     document.querySelector(
       ".city"
     ).innerText = `Weather in \n${name}${currentState}`;
@@ -45,8 +44,6 @@ let weather = {
     document.querySelector(".wind").innerText =
       "Wind Speed: " + Math.ceil(speed) + " mph";
     document.querySelector(".weather").classList.remove("loading");
-    document.body.style.backgroundImage =
-      "url('https://source.unsplash.com/1920x1080/?" + name + "')";
   },
   search: function () {
     this.fetchWeather(document.querySelector(".search-bar").value);
